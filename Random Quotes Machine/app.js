@@ -43,28 +43,22 @@ const allQuotes = [
   },
 ];
 
-window.addEventListener("load", () => {
-  let timer = setInterval(changeColorAndText, 5000);
+let timer = setInterval(changeColorAndText, 5000);
 
-  button.addEventListener("click", changeColorAndText);
+button.addEventListener("click", changeColorAndText);
 
-  function changeColorAndText() {
-    clearInterval(timer);
+function changeColorAndText() {
+  clearInterval(timer);
 
-    const randomNumber = Math.floor(Math.random() * allQuotes.length);
+  const randomNumber = Math.floor(Math.random() * allQuotes.length);
 
-    bodyElement.style.backgroundColor = `var(--bg-color${randomNumber})`;
-    bodyElement.style.color = `var(--bg-color${randomNumber})`;
-    newQuote.style.backgroundColor = `var(--bg-color${randomNumber})`;
-    userIcon.style.color = `var(--bg-color${randomNumber})`;
+  bodyElement.style.backgroundColor = `var(--bg-color${randomNumber})`;
+  bodyElement.style.color = `var(--bg-color${randomNumber})`;
+  newQuote.style.backgroundColor = `var(--bg-color${randomNumber})`;
+  userIcon.style.color = `var(--bg-color${randomNumber})`;
 
-    text.textContent = allQuotes[randomNumber].quote;
-    author.textContent = allQuotes[randomNumber].author;
+  text.textContent = allQuotes[randomNumber].quote;
+  author.textContent = allQuotes[randomNumber].author;
 
-    function readyInterval() {
-      timer = setInterval(changeColorAndText, 5000);
-    }
-
-    readyInterval();
-  }
-});
+  timer = setInterval(changeColorAndText, 5000);
+}
